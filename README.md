@@ -1,4 +1,4 @@
-# Problem Set 4
+# Problem Set 4: Using a Stack
 ## Due Monday, February 10 at 11:59pm
 
 ---
