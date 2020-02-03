@@ -24,7 +24,7 @@ There are a number of ways you could write this, but I have provided an algorith
 4. Return the `StringBuilder` object as a String, calling its `toString()` method.
 
 ## Part 2
-In this part of the problem set, you will be working on the `ReverseAlphabetizer.java` class, which uses two instances of `StringLL` to sort a series of words into reverse alphabetical order. Open the file `ReverseAlphabetizer.java` and you will see that I have provided some basic code for you. All of your code will go in the `main()` method. You do not need to write additional methods.
+In this part of the problem set, you will be working on the `ReverseAlphabetizer.java` class, which uses two instances of `StackLL` to sort a series of words into reverse alphabetical order. Open the file `ReverseAlphabetizer.java` and you will see that I have provided some basic code for you. All of your code will go in the `main()` method. You do not need to write additional methods or create instance variables.
 
 ### Comparing two `String` objects
 In class we learned about the `compareTo()` method in `String`. The `compareTo()` method of `String` returns a positive number if the calling `String` comes after the argument `String` in the alphabet; a negative number if the calling `String` comes before the argument `String` in the alphabet; and 0 if the two `String` objects are the same. Example:
@@ -38,7 +38,7 @@ System.out.println(s2.compareTo(s1)); // will print 25 because "zoo" (s2) comes 
 System.out.println(s2.compareTo("zoo")); // will print 0 because s2 is "zoo", which is the same as "zoo"
  ```
 
-In this problem set, you are going to have to frequently compare two `String` objects to figure out which one comes first in the alphabet. If we were not doing case-insensitive search, you could use the existing `compareTo()` method in `String`. Unfortunately, `compareTo()` is case sensitive; it will put all words beginning with capital letters before words beginning with lowercase letters (e.g., *Dog* would come before *daisy*, while *dog* would come after *daisy*).
+In this problem set, you are going to have to frequently compare two `String` objects to figure out which one comes first in the alphabet. If we were not doing case-insensitive search, you could use the existing `compareTo()` method in `String`. Unfortunately, `compareTo()` is case sensitive; it will put all words beginning with capital letters before words beginning with lowercase letters (e.g., *Dog* would come before *daisy*, even though *dog* would come after *daisy*).
 
 You will have to find a solution to this problem by looking at the [methods described in the Javadoc for `String`](https://docs.oracle.com/javase/8/docs/api/java/lang/String.html#method.summary). There are multiple ways to compare two `String` objects case-insensitively. Any way that consistently works is acceptable.
 
@@ -56,19 +56,21 @@ This is a sample of how we will be running the code when we test your submission
 ### The algorithm
 Create two `StackLL` objects: one called `mainstack` for storing the reverse alphabetized list of words, and one called `tempstack` for temporarily offloading words fom `mainstack` while you search for the proper location for the incoming word.
 
-This is how the algorithm works. Write a for-loop to go through each word in the array of words from the input string. For each word `w`:
+This is how the algorithm works. Write a for-loop to go through each word in the array of words from the input string. For each word `w` in the array of words:
 
 * Peek at the top word of `mainstack`. Let's call it `current`. 
 
-* While `current` comes before `w` in the alphabet (use the `compareTo()` method on `String` to determine this!), pop `current` off `mainstack` and push it on to `tempstack`. Reset `current` to whatever `peek()` returns.
+* While `current` comes after `w` in the alphabet (use the `compareTo()` method on `String` to determine this!), pop `current` off `mainstack` and push it on to `tempstack`. Reset `current` to whatever `peek()` returns.
 
-* When `current` finally comes after `w` alphabetically, push `w` onto `mainstack`.
+* When `current` finally comes before `w` alphabetically, push `w` onto `mainstack`.
 
 * Then pop each element off of `tempstack` and push each onto `mainstack`.
 
 * Continue to the next word in the array of words to sort until you have sorted the whole array.
 
-When you are done, you should have a sorted stack of words in `mainstack`, ordered in reverse alphabetical order (z to a) from top to bottom. The stack `tempstack` should be empty. Print out the original input `String` followed by the sorted stack (using the `toString()` you wrote above) to prove that your code works correctly.
+When you are done, you should have a sorted stack of words in `mainstack`, ordered in reverse alphabetical order (z to a) from top to bottom. In other words, the bottom of the stack should have words closer to the beginning of the alpphabet, and the top should have words closer to the end of the alphabet. The stack `tempstack` should be empty. 
+
+Print out the original input `String` followed by the sorted stack (using the `toString()` method you wrote in Part 1) to prove that your code works correctly.
 
 
 ### Some hints and notes
