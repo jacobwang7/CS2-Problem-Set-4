@@ -44,6 +44,8 @@ In this problem set, you are going to have to frequently compare two `String` ob
 
 You will have to find a solution to this problem by looking at the [methods described in the Javadoc for `String`](https://docs.oracle.com/javase/8/docs/api/java/lang/String.html#method.summary). There are multiple ways to compare two `String` objects case-insensitively. Any way that consistently works is acceptable.
 
+Note that if you have two versions of the same word with different capitalization patterns (e.g., *Dog* and *dog*, they will have no natural order and can appear in either order in your final reverse-alphabetized stack.
+
 
 ### Running the program
 Much to the delight of many of you, we will be using the  `Scanner` class to read in a string from the user during execution of this program. (Recall that previously I was asking you to use command line arguments, i.e., the arguments to main(), i.e., the stuff you would type after the class name when running the program.) I've included the code for using `Scanner` in the `ReverseAlphabetizer.java` file. 
@@ -62,7 +64,7 @@ This is how the algorithm works. Write a for-loop to go through each word in the
 
 * Peek at the top word of `mainstack`. Let's call it `current`. 
 
-* While `current` comes after `w` in the alphabet (see the section above on how to do this!), pop `current` off `mainstack` and push it on to `tempstack`. Reset `current` to whatever `peek()` returns.
+* While `current` comes after `w` in the alphabet (see the section above on how to determine this this!), pop `current` off `mainstack` and push it on to `tempstack`. Reset `current` to whatever `peek()` returns.
 
 * When `current` finally comes before `w` alphabetically, push `w` onto `mainstack`.
 
@@ -79,17 +81,19 @@ Print out the original input `String` followed by the sorted stack (using the `t
 
 * In your implementation of the sorting algorithm, you will **need** to include one or more checks on the stacks using `isEmpty()`. For instance, if a stack is empty, you shouldn't call `peek()` or `pop()`. If you get a null pointer exception (or worse yet, an infinite loop!), it might be because you are calling `peek()` or `pop()` on an empty stack.
 
-* Again `compareTo()` method in String is *case sensitive*. That is, capitalized words will always come before uncapitalized words. Thus, if your string is "Boston baseball Commonwealth chestnut", the stack will be sorted, from top to bottom as "Boston Commonwealth baseball chestnut". Search the documentation for `String` to figure out a way to do a case-insensitive comparison. There is more way than one! 
+* You will almost certainly get null pointer exceptions. If you get one, you are probably calling `peek()` or `pop()` on an empty stack. You'll need to call `isEmpty()` and/or check whether things `== null` several times.
+
+* Remember that the `compareTo()` method in String is *case sensitive*. That is, capitalized words will always come before uncapitalized words. Search the documentation for `String` to figure out a way to do a case-insensitive comparison. There is more than one way! 
 
 * As you develop your code, you should frequently use the `toString()` method you implemented in `StackLL` to check on the contents of your stacks.
 
-* All of your code should go in the `main()` method. You do not need to write additional methods, and you do not need any external variables.
+* All of your code in `ReverseAlphabetizer.java` should go in the `main()` method. You do not need to write additional methods, and you do not need any external variables.
 
-* Remember to ABC: **A**lways **B**e **C**ompiling. Compile your code often so that you fix errors right away before they cause a cascade of compilation errors.
+* Remember to ABC: **A**lways **B**e **C**ompiling. Compile your code often so that you fix minor errors right away before they cause a cascade of compilation errors.
 
 ### Pushing and verifying your submission
 
-Once your code works to your satisfaction, push `StackLL` and `ReverseAlphabetizer.java` to your personal master repo on the GitHub Classroom site, as you did for previous problem set. Use the commit message "READY FOR GRADING" so we know you are done. 
+Once your code works to your satisfaction, push `StackLL.java` and `ReverseAlphabetizer.java` to your personal master repo on the GitHub Classroom site, as you did for previous problem set. Use the commit message "READY FOR GRADING" so we know you are done. 
 
 As always, you can check to see if it worked by going to GitHub and checking to see if it was updated and whether the files have changed in the way you expected. This is your responsibility.
 
