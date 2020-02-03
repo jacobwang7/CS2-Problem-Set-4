@@ -53,7 +53,7 @@ public class ReverseAlphabetizer {
 
     The stack tempstack should be empty.
 
-    Using toString(), print out the original String followed by the
+    Print out the original String. Then use toString() to print out the
     reverse-sorted stack to prove that your code works correctly. 
     */
 
