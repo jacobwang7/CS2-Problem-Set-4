@@ -23,6 +23,8 @@ There are a number of ways you could write this, but I have provided an algorith
 3. As you visit each node, append the item to the `StringBuilder` object followed by a single space.
 4. Return the `StringBuilder` object as a String, calling its `toString()` method.
 
+Do not use `push()`, `pop()`, or `peek()`. You should be directly accessing the linked list nodes.
+
 ## Part 2
 In this part of the problem set, you will be working on the `ReverseAlphabetizer.java` class, which uses two instances of `StackLL` to sort a series of words into reverse alphabetical order. Open the file `ReverseAlphabetizer.java` and you will see that I have provided some basic code for you. All of your code will go in the `main()` method. You do not need to write additional methods or create instance variables.
 
@@ -60,7 +62,7 @@ This is how the algorithm works. Write a for-loop to go through each word in the
 
 * Peek at the top word of `mainstack`. Let's call it `current`. 
 
-* While `current` comes after `w` in the alphabet (use the `compareTo()` method on `String` to determine this!), pop `current` off `mainstack` and push it on to `tempstack`. Reset `current` to whatever `peek()` returns.
+* While `current` comes after `w` in the alphabet (see the section above on how to do this!), pop `current` off `mainstack` and push it on to `tempstack`. Reset `current` to whatever `peek()` returns.
 
 * When `current` finally comes before `w` alphabetically, push `w` onto `mainstack`.
 
