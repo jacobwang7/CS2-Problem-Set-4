@@ -44,7 +44,7 @@ In this problem set, you are going to have to frequently compare two `String` ob
 
 You will have to find a solution to this problem by looking at the [methods described in the Javadoc for `String`](https://docs.oracle.com/javase/8/docs/api/java/lang/String.html#method.summary). There are multiple ways to compare two `String` objects case-insensitively. Any way that consistently works is acceptable.
 
-Note that if you have two versions of the same word with different capitalization patterns (e.g., *Dog* and *dog*, they will have no natural order and can appear in either order in your final reverse-alphabetized stack.
+Note that if you have two versions of the same word with different capitalization patterns (e.g., *Dog* and *dog*), they will have no natural order and can appear in either order in your final reverse-alphabetized stack.
 
 
 ### Running the program
