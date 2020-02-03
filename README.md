@@ -79,15 +79,15 @@ Print out the original input `String` followed by the sorted stack (using the `t
 
 ### Some hints and notes
 
-* In your implementation of the sorting algorithm, you will **need** to include one or more checks on the stacks using `isEmpty()`. For instance, if a stack is empty, you shouldn't call `peek()` or `pop()`. If you get a null pointer exception (or worse yet, an infinite loop!), it might be because you are calling `peek()` or `pop()` on an empty stack.
+* In your implementation of the sorting algorithm, you will **need** to include one or more checks on the stacks using `isEmpty()`. For instance, if a stack is empty, you shouldn't call `peek()` or `pop()`. If you get a null pointer exception, it might be because you are calling `peek()` or `pop()` on an empty stack. To avoid NPEs, you'll need to call `isEmpty()` and/or check whether things `== null` several times.
 
-* You will almost certainly get null pointer exceptions. If you get one, you are probably calling `peek()` or `pop()` on an empty stack. You'll need to call `isEmpty()` and/or check whether things `== null` several times.
+* If you run your code and nothing happens, you are probably caught in an infinite loop. Insert print statements frequently in your code, so you can figure out where this loop is happening. (Just make sure to remove the print statements before you submit!)
 
 * Remember that the `compareTo()` method in String is *case sensitive*. That is, capitalized words will always come before uncapitalized words. Search the documentation for `String` to figure out a way to do a case-insensitive comparison. There is more than one way! 
 
-* As you develop your code, you should frequently use the `toString()` method you implemented in `StackLL` to check on the contents of your stacks.
+* As you develop your code, you should frequently use the `toString()` method you implemented in `StackLL` to check on the contents of your stacks. (Just remember to remove these print statements before you submit!)
 
-* All of your code in `ReverseAlphabetizer.java` should go in the `main()` method. You do not need to write additional methods, and you do not need any external variables.
+* All of your code in `ReverseAlphabetizer.java` should go in the `main()` method. You do not need to write additional methods, and you do not need any classs or instance variables in this class.
 
 * Remember to ABC: **A**lways **B**e **C**ompiling. Compile your code often so that you fix minor errors right away before they cause a cascade of compilation errors.
 
