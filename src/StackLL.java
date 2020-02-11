@@ -33,6 +33,7 @@ public class StackLL implements Stack {
     else {
       n.next = top;
       top = n;
+      //This is the pointer^ *Ask about it*
     }
     size++;
   }
@@ -68,6 +69,15 @@ public class StackLL implements Stack {
 
   // toString()
   public String toString() {
+    StringBuilder sb = new StringBuilder();
+    //Creates a new stringbuilder object
+    for (Node n = top; n != null; n = n.next) {
+      sb.append(n.item + " ");
+    }
+    //This loop runs through all the nodes in the stack and adds the items
+    //from the nodes into a stringbuilder
+    return sb.toString();
+    //Returns the stringbuilder
 
     // Write code to return a string that is the words currently in the stack,
     // from top to bottom. Do not use push(), pop(), or peek().
@@ -81,7 +91,6 @@ public class StackLL implements Stack {
     // Below, I'm inserting dummy code so this will compile. You need to delete this
     // when you are writing your code, of course.
 
-    return "";
 
   }
 
